@@ -9,8 +9,7 @@ function display( $task, $workspaces, $projects ){
     $completed = "";
     if($name == ""){
         $name = "** empty title **";
-    }
-          
+    }        
     if($project_color == ""){
         $project_color = "default-color";
     }
@@ -20,7 +19,7 @@ function display( $task, $workspaces, $projects ){
     echo '<li data-id="'.$task['gid'].'" class="todo-item'.$completed.'">';
 
     
-    if($task['projects'] == null) {
+    if($task['projects'] == null){
         echo '<a class="name" target="_blank" href="https://app.asana.com/0/'.idToURL($task['workspace']['gid']).'/'.$task['gid'].'">'.$name.'</a>';
     }else{
         echo '<a class="name" target="_blank" href="https://app.asana.com/0/'.$projects[$project]['gid'].'/'.$task['gid'].'">'.$name.'</a>';
@@ -40,30 +39,30 @@ function display( $task, $workspaces, $projects ){
     $status = $task['assignee_status'];
     echo '<div><select class="mobileChange">';
     if($status == "today"){
-        echo '  <option selected value="today">Today</option>
-                <option value="upcoming">Upcoming</option>
-                <option value="later">Later</option>
-                <option value="inbox">Inbox</option>';
+        echo '  <option selected value="today">Aujourdhui</option>
+                <option value="upcoming">Cette semaine</option>
+                <option value="later">Plus tard</option>
+                <option value="inbox">Boîte de réception</option>';
     }elseif($status == "upcoming"){
-        echo '  <option value="today">Today</option>
-                <option selected value="upcoming">Upcoming</option>
-                <option value="later">Later</option>
-                <option value="inbox">Inbox</option>';
+        echo '  <option value="today">Aujourdhui</option>
+                <option selected value="upcoming">Cette semaine</option>
+                <option value="later">Plus tard</option>
+                <option value="inbox">Boîte de réception</option>';
     }elseif($status == "inbox"){
-        echo '  <option value="today">Today</option>
-                <option value="upcoming">Upcoming</option>
-                <option value="later">Later</option>
-                <option selected value="inbox">Inbox</option>';
+        echo '   <option value="today">Aujourdhui</option>
+                 <option selected value="upcoming">Cette semaine</option>
+                 <option value="later">Plus tard</option>
+                 <option value="inbox">Boîte de réception</option>';
     }elseif($status == "later"){
-        echo '  <option selected value="today">Today</option>
-                <option value="upcoming">Upcoming</option>
-                <option selected value="later">Later</option>
-                <option value="inbox">Inbox</option>';
+        echo '   <option value="today">Aujourdhui</option>
+                 <option selected value="upcoming">Cette semaine</option>
+                 <option value="later">Plus tard</option>
+                 <option value="inbox">Boîte de réception</option>';
     }
     echo '</select></div>'; 
 
 
-    echo '<div class="icon" data-toggle="tooltip" data-placement="left" title="Click to complete task"><svg class="CheckIcon" title="CheckIcon" viewBox="0 0 32 32"><polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "></polygon></svg></div>'; 
+    echo '<div class="icon" data-toggle="tooltip" data-placement="left" title="Compléter la tâche"><svg class="CheckIcon" title="CheckIcon" viewBox="0 0 32 32"><polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "></polygon></svg></div>'; 
     echo '</li>';
 }
 

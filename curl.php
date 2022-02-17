@@ -57,7 +57,7 @@ foreach ($workspaces as $i => $workspace) {
     $tasks = json_decode($output,true);
 
     // Loop through all the tasks in current workspace and add to Task lists
-    foreach ($tasks['data'] as $j => $task) {
+    foreach ($tasks['data'] =[] as $j => $task) {
         $a = $task['assignee_status'];
         $c = $task['completed'];
         if($a == "today"){
